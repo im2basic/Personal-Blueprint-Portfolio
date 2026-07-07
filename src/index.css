@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  /* Blueprint palette (PRD) */
+  --color-blueprint: #091d3b;
+  --color-grid: #1d3a5f;
+  --color-accent: #69b8ff;
+  --color-success: #00d084;
+  --color-construction: #ffb547;
+
+  /* Typography (PRD) */
+  --font-heading: "Geist", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-blueprint font-body text-white antialiased;
+}
+
+::selection {
+  background: rgba(105, 184, 255, 0.35);
+}
+
+/* ---- Blueprint visual language ---------------------------------------- */
+
+/* drafted (outlined) typography */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(105, 184, 255, 0.75);
+}
+
+/* CSS fallback grid for lite mode (mobile / reduced motion / no WebGL) */
+.bg-blueprint-grid {
+  background-image:
+    linear-gradient(rgba(105, 184, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 184, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(105, 184, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 184, 255, 0.09) 1px, transparent 1px);
+  background-size:
+    32px 32px,
+    32px 32px,
+    160px 160px,
+    160px 160px;
+}
+
+/* SVG drafting lines draw themselves in */
+.draw path,
+.draw circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: blueprint-draw 1.2s ease-out forwards;
+}
+.draw path:nth-child(2),
+.draw circle:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+@keyframes blueprint-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* wireframe → finished component: sections build in as they enter view */
+.reveal {
+  opacity: 0.001;
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s ease-out,
+    transform 0.55s ease-out;
+}
+.reveal.is-built {
+  opacity: 1;
+  transform: none;
+}
+
+/* window open: expand from the card (Scene 4) */
+.window-overlay {
+  animation: overlay-in 0.2s ease-out;
+}
+.window-frame {
+  animation: window-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes window-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+}
+
+/* ---- Reduced motion ---------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .draw path,
+  .draw circle {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .window-overlay,
+  .window-frame {
+    animation: none;
+  }
+  .animate-bounce,
+  .animate-pulse {
+    animation: none;
+  }
+}

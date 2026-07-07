@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Anisong Chanthalalay — Resume</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #4a5a6e;
+    --line: #d8dfe8;
+    --accent: #1d5fa8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.2pt;
+    line-height: 1.3;
+    padding: 20pt 38pt 16pt;
+  }
+  a { color: var(--accent); text-decoration: none; }
+
+  header { margin-bottom: 7pt; }
+  h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .role {
+    font-size: 10.5pt;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 1pt;
+  }
+  .contact {
+    margin-top: 4pt;
+    color: var(--muted);
+    font-size: 8.8pt;
+  }
+  .contact span + span::before { content: "  ·  "; color: var(--line); }
+
+  .summary { margin: 7pt 0 1pt; color: var(--ink); }
+
+  h2 {
+    font-size: 9.2pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    border-bottom: 1pt solid var(--line);
+    padding-bottom: 2.5pt;
+    margin: 7pt 0 4pt;
+  }
+
+  .skills-grid { display: grid; grid-template-columns: 92pt 1fr; row-gap: 2.5pt; }
+  .skills-grid dt { font-weight: 600; }
+  .skills-grid dd { color: var(--muted); }
+
+  .job-head, .proj-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2pt;
+  }
+  .job-title, .proj-title { font-weight: 700; font-size: 10.2pt; }
+  .job-title .co { font-weight: 600; color: var(--accent); }
+  .dates { color: var(--muted); font-size: 8.8pt; white-space: nowrap; }
+  .proj-link { font-size: 8.8pt; }
+
+  ul { list-style: none; margin: 0 0 6pt; }
+  li {
+    padding-left: 10pt;
+    position: relative;
+    margin-bottom: 1.4pt;
+    color: var(--ink);
+  }
+  li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 7pt;
+    top: 1.5pt;
+  }
+
+  .edu { display: flex; justify-content: space-between; margin-bottom: 2.5pt; }
+  .edu .school { font-weight: 600; }
+  .edu .cred { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Anisong Chanthalalay</h1>
+  <div class="role">Full-Stack Product Engineer</div>
+  <div class="contact">
+    <span>(815) 329-9172</span>
+    <span><a href="mailto:anisongchan@gmail.com">anisongchan@gmail.com</a></span>
+    <span><a href="https://www.linkedin.com/in/achanthalalay">linkedin.com/in/achanthalalay</a></span>
+    <span><a href="https://github.com/im2basic">github.com/im2basic</a></span>
+  </div>
+  <p class="summary">
+    Full-stack engineer with 5 years building production software — from enterprise Angular systems used by
+    thousands of insurance professionals to self-shipped iOS and web products with paying users. I take ideas
+    from blueprint to production: architecture, UI, backend, payments, and launch.
+  </p>
+</header>
+
+<h2>Skills</h2>
+<dl class="skills-grid">
+  <dt>Languages</dt><dd>TypeScript, JavaScript, Swift, C#, Python, SQL, HTML5, SCSS/CSS3</dd>
+  <dt>Frontend</dt><dd>React, Next.js, Angular 14+, SwiftUI, RxJS, NgRx, Tailwind CSS, Kendo UI, Bootstrap</dd>
+  <dt>Backend &amp; Data</dt><dd>Node.js, Express, .NET Core (interfacing), Supabase, PostgreSQL, Prisma, SQLite/GRDB, REST APIs</dd>
+  <dt>AI &amp; Automation</dt><dd>LLM integrations (Claude, Gemini, Groq), AI agents, n8n, Zapier, Webhooks, Claude Code, Cursor, Apollo AI Sequences</dd>
+  <dt>Practices &amp; Tools</dt><dd>Azure DevOps, Git, CI/CD, Agile/Scrum, Unit Testing, Accessibility (WCAG), OOP/SOLID, Stripe, Figma, Postman</dd>
+</dl>
+
+<h2>Experience</h2>
+<div class="job-head">
+  <div class="job-title">Web Developer — <span class="co">CCMSI</span></div>
+  <div class="dates">Sep 2020 – Jun 2025</div>
+</div>
+<ul>
+  <li>Developed and maintained Angular 14+ applications for a workers' compensation claim system used by thousands of insurance agents, backed by C#/.NET services on Azure.</li>
+  <li>Converted a legacy Microsoft Silverlight application into a modern Angular front-end with a C#/.NET back-end, improving maintainability and user experience.</li>
+  <li>Designed a reusable multiple-body-parts claim component that streamlined adjuster workflows and improved data integrity, generating ~$1.2M in annual revenue for CCMSI.</li>
+  <li>Designed and launched two-way SMS + in-app chat, letting clients reach adjusters and get real-time assistance.</li>
+  <li>Implemented a prefunding feature supporting check holds and overrides for account balance management.</li>
+  <li>Built PDF &amp; Excel export tooling with dynamic rendering and formatting on Kendo UI.</li>
+  <li>Debugged, tested, and refactored legacy code, improving load times by 20% and reducing user-reported errors by 15%; collaborated with QA and product in Agile sprints to sustain high release velocity.</li>
+</ul>
+
+<h2>Projects</h2>
+
+<div class="proj-head">
+  <div class="proj-title">Deckly — SaaS platform for TCG vendors</div>
+  <div class="proj-link"><a href="https://www.decklytcg.com/">decklytcg.com</a></div>
+</div>
+<ul>
+  <li>Engineered a full-stack SaaS platform using Next.js/React, Supabase (Postgres), Clerk auth, and Stripe billing to deliver secure, scalable vendor tools.</li>
+  <li>Designed RESTful integrations with external Pokémon TCG data sources for real-time card search, pricing, and image retrieval; architected the Postgres schema for vendor inventories, sales history, and tiered pricing.</li>
+  <li>Built responsive, mobile-first UI with Next.js and Tailwind, ensuring smooth vendor workflows on any device.</li>
+</ul>
+
+<div class="proj-head">
+  <div class="proj-title">PocketWorship — iOS worship presentation app</div>
+  <div class="proj-link"><a href="https://pocketworship.com/">pocketworship.com</a></div>
+</div>
+<ul>
+  <li>Designed and built a full-stack iOS app with SwiftUI, GRDB (SQLite), and Supabase (auth, database, storage, realtime, edge functions), shipping end-to-end from architecture to the App Store.</li>
+  <li>Developed an offline-first cloud sync engine — local SQLite persistence with server-anchored cursors and background synchronization to Supabase — ensuring data availability regardless of network state.</li>
+  <li>Implemented real-time slide streaming to web viewers and streaming devices via Supabase Realtime and Edge Functions, enabling QR-code audience participation with no extra hardware; monetized with RevenueCat subscriptions.</li>
+</ul>
+
+<div class="proj-head">
+  <div class="proj-title">FlipSide — real-time debate fact-checking iOS app</div>
+</div>
+<ul>
+  <li>Built a live speech-to-fact-check pipeline — streaming audio through Deepgram STT, Groq claim extraction, and Gemini verification — surfacing sourced fact-check cards seconds after a claim is spoken.</li>
+  <li>Hardened the backend with Supabase Edge Functions for API-key isolation, per-user quota enforcement, and RPC lockdown; instrumented with PostHog and monetized via subscription paywall.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="edu">
+  <span class="school">Coding Dojo</span>
+  <span class="cred">Full Stack Software Engineer Bootcamp</span>
+</div>
+<div class="edu">
+  <span class="school">Rock Valley College</span>
+  <span class="cred">Associate of Arts</span>
+</div>
+
+</body>
+</html>
