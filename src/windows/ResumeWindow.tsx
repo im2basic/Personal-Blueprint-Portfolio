@@ -3,7 +3,7 @@ import { WindowFrame } from './WindowFrame'
 
 export function ResumeWindow({ onClose }: { onClose: () => void }) {
   return (
-    <WindowFrame title="Resume.pdf — 1 page ✓" statusBar="application/pdf" onClose={onClose}>
+    <WindowFrame title="Resume.pdf ✓" statusBar="application/pdf" onClose={onClose}>
       <div className="flex flex-col items-center gap-5">
         <object
           data={site.resumeUrl}

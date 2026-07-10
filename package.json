@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "resume": "node resume/generate-pdf.mjs",
+    "resume": "cp resume/Anisong_Chanthalalay_Resume.pdf public/resume.pdf",
+    "resume:legacy-html": "node resume/generate-pdf.mjs",
     "og": "node scripts/generate-og.mjs",
     "verify": "node scripts/verify.mjs"
   },
