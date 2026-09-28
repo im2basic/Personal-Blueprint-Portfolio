@@ -109,7 +109,10 @@ export const projects: Project[] = [
       '65+ unit tests over the sync pipeline and data layer',
     ],
     stack: ['Swift', 'SwiftUI', 'GRDB (SQLite)', 'Supabase (Auth, Postgres, Realtime, Storage, Edge Functions)', 'RevenueCat', 'PostHog'],
-    links: [{ label: 'Website', url: 'https://pocketworship.com/' }],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/us/app/pocket-worship/id6758532878' },
+      { label: 'Website', url: 'https://pocketworship.com/' },
+    ],
     lessons: [
       'Never trust the client clock — sync cursors must be anchored to the server or rows silently vanish.',
       'Offline-first is an architecture decision, not a feature you bolt on later.',
