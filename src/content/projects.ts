@@ -20,6 +20,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'munchi',
+    windowTitle: 'Munchi.exe — build 1.0.0 ✓',
+    name: 'Munchi',
+    tagline: 'Photograph your fridge, cook tonight',
+    platform: 'iOS',
+    cardBlurb:
+      'AI reads your fridge from a photo and turns what is already there into recipes you can cook tonight, plus pantry tracking and a food-waste savings tracker.',
+    overview:
+      'Munchi walks you through your kitchen shelf by shelf, identifies every ingredient from the photos, and ranks recipes by what you can actually make right now: Cook Now uses only what you have, Almost There needs one or two things that go straight onto a shopping list.',
+    problem:
+      'A full fridge and no dinner idea is a daily problem, and the cost of it lands in the bin: households throw away food they forgot they owned. Recipe apps answer the wrong question, asking what you want to cook instead of what you already have.',
+    solution:
+      'A multi-zone kitchen tour captures fridge, freezer, spice drawer and pantry, then one batched vision call names everything at once. Recognized items become a pantry with freshness tracking, which feeds a recipe pipeline that ranks by ingredient coverage and cooks down food-waste savings into a running total.',
+    architecture: [
+      'Flutter app (Riverpod, go_router) on a Convex TypeScript backend, with every model and vendor key confined to Convex actions so the client never holds one',
+      'Multi-zone onboarding scan: photos upload as they are taken, then a single batched Gemini vision call identifies ingredients across all zones at once',
+      'Recipe pipeline with a fingerprinted query cache (30-day TTL) in front of a third-party recipe API, and AI-authored recipes only as filler below a minimum result count, deduplicated by dish key',
+      'Allergy and diet safety filter that discards unsafe recipes rather than trying to repair them',
+      'RevenueCat subscriptions on StoreKit 2 with a Convex HTTP webhook: events ordered against stored timestamps so a redelivery cannot revoke an active subscriber, and cancellation never revokes access before expiration',
+      'Supabase Auth migrated from Clerk behind a dual-issuer transition, so builds already in the field kept working through the cutover',
+      'OneSignal digest notifications scheduled from Convex crons; PostHog on the onboarding and paywall funnel',
+      '39 Flutter test files and 52 Convex backend test files covering the scan, quota, purchase and sync paths',
+    ],
+    stack: ['Flutter', 'Dart', 'Riverpod', 'Convex (TypeScript)', 'Gemini', 'Supabase Auth', 'RevenueCat (StoreKit 2)', 'OneSignal', 'PostHog'],
+    links: [{ label: 'Website', url: 'https://munchimunchii.com' }],
+    lessons: [
+      'Cache the expensive call, not the cheap one: fingerprinting recipe queries kept vendor and model spend flat while the pantry kept changing.',
+      'Subscription webhooks are ordering problems first: a cancellation is not an expiration, and a redelivered event must never take access away.',
+      'Batching one vision call across every photo beat calling per photo on both accuracy and cost, because the model sees the whole kitchen as context.',
+    ],
+    screenshots: [],
+  },
+  {
     slug: 'flipside',
     windowTitle: 'FlipSide.exe — build 1.0.0 ✓',
     name: 'FlipSide',
