@@ -44,7 +44,10 @@ export const projects: Project[] = [
       '39 Flutter test files and 52 Convex backend test files covering the scan, quota, purchase and sync paths',
     ],
     stack: ['Flutter', 'Dart', 'Riverpod', 'Convex (TypeScript)', 'Gemini', 'Supabase Auth', 'RevenueCat (StoreKit 2)', 'OneSignal', 'PostHog'],
-    links: [{ label: 'Website', url: 'https://munchimunchii.com' }],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/us/app/munchi-fridge-to-recipes/id6802906604' },
+      { label: 'Website', url: 'https://munchimunchii.com' },
+    ],
     lessons: [
       'Cache the expensive call, not the cheap one: fingerprinting recipe queries kept vendor and model spend flat while the pantry kept changing.',
       'Subscription webhooks are ordering problems first: a cancellation is not an expiration, and a redelivered event must never take access away.',
