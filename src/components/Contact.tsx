@@ -1,5 +1,6 @@
 import { Section } from './Section'
 import { site } from '../content/site'
+import { projects } from '../content/projects'
 import { useAppStore } from '../stores/appStore'
 
 export function Contact() {
@@ -16,7 +17,7 @@ export function Contact() {
         </div>
         <div className="space-y-1 px-4 py-4">
           <p className="text-white/60">$ portfolio build --production</p>
-          <p className="text-success">✓ Build Successful — 5 projects shipped</p>
+          <p className="text-success">✓ Build Successful — {projects.length} projects shipped</p>
           <p className="pt-2 text-white/60">$ contact --anisong</p>
         </div>
         <div className="flex flex-wrap gap-3 px-4 pb-5">

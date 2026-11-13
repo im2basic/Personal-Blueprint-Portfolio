@@ -20,6 +20,41 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'platedebt',
+    windowTitle: 'PlateDebt.exe — build 1.0.0 ✓',
+    name: 'Plate Debt',
+    tagline: 'You paid for the buffet. Now eat it back.',
+    platform: 'iOS',
+    cardBlurb:
+      'An all-you-can-eat tracker: tap each plate and watch a progress ring climb until you have eaten more than the restaurant charged, solo or at a live group table.',
+    overview:
+      'Plate Debt is a buffet calculator for eight kinds of all-you-can-eat, from Korean BBQ and hotpot to Brazilian steakhouse and brunch. Every plate you log adds its menu value to a beat-the-house ring, a PAID stamp lands when you have eaten back what you paid, and the meal ends in a shareable recap.',
+    problem:
+      'Everyone at an AYCE table asks the same question, "did we get our money\'s worth?", and nobody can answer it. There is no reference for what a plate of brisket or a piece of sushi is worth, and tallying it by hand on a napkin kills the fun of the meal.',
+    solution:
+      'A researched catalog of 319 dishes, each priced and costed from wholesale ingredient data, so one tap logs a plate at its real value. AI plate and receipt scans log a whole plate from a photo, group tables turn the meal into a live leaderboard joined by link or QR code, and widgets plus a Live Activity keep the score on the Lock Screen.',
+    architecture: [
+      'SwiftUI (iOS 17+) with @Observable stores injected through the environment, generated with XcodeGen; a widget extension drives Home Screen widgets, a Live Activity and the Dynamic Island',
+      'Data pipeline in plain Python: a source-of-truth catalog builds the bundled JSON (offline first launch) and the Supabase seed SQL, with a cost engine that prices each dish from researched wholesale prices, yields and recipes, and USDA FoodData Central nutrition enrichment',
+      'AI plate and receipt scans on Gemini Flash behind Supabase Edge Functions: verify the JWT, consume one credit atomically in Postgres, send a compact per-restaurant catalog with the photo, and refund the credit on any failure; images are never stored',
+      'Group tables over Supabase Realtime (seats, plates, lobby votes), with universal links, QR invites and deferred deep links that match a fresh install to its invite by a coarse fingerprint plus a clipboard fallback',
+      'RevenueCat subscriptions, scan packs and skins with an idempotent webhook that records each event id in the same transaction that applies it; AdMob banners and rewarded ads on the free tier',
+      'Every SKU priced from a written formula so worst-case AI cost still clears a 10% margin after Apple\'s cut, with a monthly scan cap that keeps the yearly plan above water',
+      'Localized into 11 languages with translated dish names, enforced by a test that fails on any untranslated key; 190+ unit tests over debt math, badges, stats, group logic and monetization',
+    ],
+    stack: ['Swift', 'SwiftUI', 'WidgetKit + ActivityKit', 'Supabase (Auth, Postgres, Realtime, Edge Functions)', 'Gemini', 'RevenueCat', 'AdMob', 'Python', 'XcodeGen'],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/app/id6821852143' },
+      { label: 'Website', url: 'https://www.platedebt.com/' },
+    ],
+    lessons: [
+      'Price from the cost model, not from competitors: writing down the per-scan AI cost showed the yearly plan, not the monthly one, was the SKU that could go under water.',
+      'A credit system is only fair if every failure refunds it; consuming and refunding inside Postgres kept quotas exact even when the model timed out.',
+      'Content is the product for a calculator: researching 319 dishes against real menus and wholesale prices mattered more than any screen.',
+    ],
+    screenshots: [],
+  },
+  {
     slug: 'munchi',
     windowTitle: 'Munchi.exe — build 1.0.0 ✓',
     name: 'Munchi',

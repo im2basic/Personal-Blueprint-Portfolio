@@ -43,7 +43,7 @@ export const experience = [
     start: '2023',
     end: 'Present',
     summary:
-      'Designed, built, and shipped five products end-to-end: Deckly, PocketWorship, FlipSide, StampKit, and Dewy — covering iOS, web, backend, payments, and launch.',
+      'Designed, built, and shipped seven products end-to-end: Plate Debt, Munchi, Deckly, PocketWorship, FlipSide, StampKit, and Dewy — covering iOS, web, backend, payments, and launch.',
     highlights: [],
   },
 ]

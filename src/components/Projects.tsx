@@ -8,7 +8,7 @@ export function Projects() {
   return (
     <Section id="projects" drawingNo="drawing #02 — projects/" title="Featured Projects">
       <p className="-mt-4 mb-8 font-mono text-sm text-white/50">
-        5 products shipped end-to-end. Click any card to run it.
+        {projects.length} products shipped end-to-end. Click any card to run it.
       </p>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
